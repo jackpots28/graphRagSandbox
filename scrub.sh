@@ -1,8 +1,8 @@
 #!/bin/bash
-for f in $(git diff --name-only --cached); do
-    if [[ $f == *.ipynb ]]; then
-        jupyter nbconvert --clear-output --inplace $f
-        git add $f
+for file in $(git diff --name-only --cached); do
+    if [[ "${file}" == *.ipynb ]]; then
+        jupyter nbconvert --clear-output --inplace "${file}"
+        git add "${file}"
     fi
 done
 
