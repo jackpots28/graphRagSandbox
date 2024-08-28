@@ -30,30 +30,77 @@
 
     .super_parent {
       position: fixed;
+      display: flex;
     }
 
     .main_header {
       background-color: chartreuse;
-      width: 50em;
       text-align: center;
     }
 
     .embedded_webpage {
       background-color: aquamarine;
-      width: 50em;
       height: 20em;
+    }
+
+    .upload_form {
+      background-color: crimson;
+    }
+
+    .left {
+      flex: 0 0 40em;
+      background-color: darkgreen;
+      border: 1px dashed #f0f;
+    }
+
+    .right {
+      text-align: center;
+      flex: 0 0 40em;
+      background-color: blueviolet;
+      border: 1px dashed #00f;
+    }
+
+    table{
+      border: thick black;
+      padding: 20px;
+      margin: 20px;
     }
 
 </style>
 
 <body>
   <div class="super_parent">
-    <div class="main_header">
-        <h1>Dynamic Document Title Header</h1>
-    </div>
+    <div class="left">
+      <div class="main_header">
+          <h1>{{ dynamic_header }}</h1>
+      </div>
 
-    <div class="embedded_webpage">
-      <iframe height="100%" width="100%" src="SmartBear_5bn3lv8b.html" title="description"></iframe>
+      <div class="embedded_webpage">
+        <iframe height="100%" width="100%" src="{{url_for('static', filename=static_file_name)}}" title="TEST"></iframe>
+      </div>
+
+      <div class="upload_form">
+        <h1>Upload new File</h1>
+        <form method="POST" enctype=multipart/form-data>
+          <input type=file name=file>
+          <input type=submit value="Submit">
+        </form>
+      </div>
+    </div>
+    <div class="right">
+      <h1>Form field for navigating and selecting text.</h1>
+      <!-- TEMP TABLE FOR EXAMPLE -->
+      <table id="TEMP_TABLE">
+        <tr>
+          <td>
+            somthing
+          </td>
+          <td>
+            something2
+          </td>
+        </tr>
+      </table>
+
     </div>
   </div>
 </body>
