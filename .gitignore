@@ -5,6 +5,7 @@ test_notebook.ipynb
 __pycache__/
 
 static/*
+!static/.gitkeep
 
 non_logging_output_dir/*
 !non_logging_output_dir/.gitkeep
