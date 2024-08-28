@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Something</title>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type=text/javascript>
+    $(function() {
+      $('a#process_input').bind('click', function() {
+        $.getJSON('/background_process', {
+          proglang: $('input[name="proglang"]').val(),
+        }, function(data) {
+          $("#result").text(data.result);
+        });
+        return false;
+      });
+    });
+  </script>
+
+</head>
+
+<style>
+    * {
+      font-family: sans-serif;
+    }
+
+    .super_parent {
+      position: fixed;
+    }
+
+    .main_header {
+      background-color: chartreuse;
+      width: 50em;
+      text-align: center;
+    }
+
+    .embedded_webpage {
+      background-color: aquamarine;
+      width: 50em;
+      height: 20em;
+    }
+
+</style>
+
+<body>
+  <div class="super_parent">
+    <div class="main_header">
+        <h1>Dynamic Document Title Header</h1>
+    </div>
+
+    <div class="embedded_webpage">
+      <iframe height="100%" width="100%" src="SmartBear_5bn3lv8b.html" title="description"></iframe>
+    </div>
+  </div>
+</body>
+
+</html>

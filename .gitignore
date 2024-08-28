@@ -2,6 +2,10 @@
 /assets/SmartBear_TOU-10FEB2023.docx
 .DS_Store
 test_notebook.ipynb
+__pycache__/
 
 non_logging_output_dir/*
 !non_logging_output_dir/.gitkeep
+
+templates/*
+!templates/root_frame.html
