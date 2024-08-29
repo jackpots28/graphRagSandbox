@@ -6,6 +6,7 @@ __pycache__/
 
 static/*
 !static/.gitkeep
+!static/blank.html
 
 non_logging_output_dir/*
 !non_logging_output_dir/.gitkeep

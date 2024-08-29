@@ -7,12 +7,13 @@ import tempfile
 import mammoth
 
 docx_path = Path("/Volumes/stuff/graphRagSandbox/assets/SmartBear_TOU-10FEB2023.docx")
-non_logging_output_dir_path = Path("/Volumes/stuff/graphRagSandbox/templates")
+non_logging_output_dir_path = Path("/Volumes/stuff/graphRagSandbox/static")
 
 out_temp_file = tempfile.NamedTemporaryFile(prefix="SmartBear_",
                                             suffix=".html",
                                             delete=False,
                                             dir=non_logging_output_dir_path)
+
 
 with open(docx_path, "rb") as docx_file:
     result = mammoth.convert_to_html(docx_file)
@@ -39,11 +40,13 @@ def upload_file():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '':
         uploaded_file.save(f"static/{uploaded_file.filename}")
-    return redirect(url_for('index'))
+    return render_template("root_frame.html",
+                           static_file_name=f"{Path(out_temp_file.name).name}",
+                           dynamic_header=f"{uploaded_file.filename}")
 
 
 @app.route("/")
 def index():
     return render_template("root_frame.html",
-                           static_file_name="SmartBear_5bn3lv8b.html",
+                           static_file_name="blank.html",
                            dynamic_header="DYNAMIC_HEADER_VALUE")
