@@ -4,9 +4,10 @@
 test_notebook.ipynb
 __pycache__/
 
-static/*
+static/
 !static/.gitkeep
 !static/blank.html
+!static/styles/_main.css
 
 non_logging_output_dir/*
 !non_logging_output_dir/.gitkeep

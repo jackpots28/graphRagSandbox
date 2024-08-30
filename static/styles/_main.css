@@ -1,0 +1,54 @@
+/*  whole page - universal font */
+* {
+    font-family: Arial,'EB Garamond',serif;
+}
+
+.super_parent {
+    position: fixed;
+    display: flex;
+}
+
+.left_child_panel {
+    flex: 0 0 50em;
+    background-color: darkgreen;
+}
+
+.right_child_panel {
+    text-align: center;
+    flex: 0 0 20em;
+    background-color: indigo;
+}
+
+.left_main_header {
+    background-color: chartreuse;
+    text-align: center;
+}
+
+.right_main_header {
+    background-color: blueviolet;
+    text-align: center;
+}
+
+.embedded_webpage {
+    background-color: aquamarine;
+    height: 20em;
+    border-radius: 1em;
+}
+
+.embedded_webpage iframe {
+    border: none;
+}
+
+.right_form_selection {
+    background-color: mediumpurple;
+    height: 20em;
+}
+
+.right_form_selection input {
+    margin: 2em 1em 1em;
+}
+
+.doc_upload_form {
+    background-color: crimson;
+    text-align: center;
+}
