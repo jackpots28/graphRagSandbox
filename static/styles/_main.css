@@ -1,7 +1,32 @@
+/*
+Notes on Dillards specific website color palette and font styles:
+Font Family - EB Garamond
+Color Palette:
+- Grey(s) {#5D6166, #DFDFDF, #231F20}
+- Other {#F5DE90, #FFD1Db}
+- White {#FFFFFF}
+ */
+
 /*  whole page - universal font */
 * {
     font-family: Arial,'EB Garamond',serif;
 }
+
+.left_child_panel, .right_child_panel {
+    background-color: #FFF;
+}
+
+.left_main_header, .right_main_header {
+    background-color: #231F20;
+    color: #FFF;
+    height: 2em;
+    border-radius: 2em;
+}
+
+.left_embedded_webpage, .right_form_selection {
+    background-color: #DFDFDF;
+}
+
 
 .super_parent {
     position: fixed;
@@ -10,45 +35,48 @@
 
 .left_child_panel {
     flex: 0 0 50em;
-    background-color: darkgreen;
+    /* background-color: darkgreen; */
 }
 
 .right_child_panel {
     text-align: center;
     flex: 0 0 20em;
-    background-color: indigo;
+    /* background-color: indigo; */
 }
 
 .left_main_header {
-    background-color: chartreuse;
+    /* background-color: chartreuse; */
     text-align: center;
 }
 
 .right_main_header {
-    background-color: blueviolet;
+    /*background-color: blueviolet;*/
     text-align: center;
 }
 
-.embedded_webpage {
-    background-color: aquamarine;
+.left_embedded_webpage {
+    /*background-color: aquamarine;*/
     height: 20em;
     border-radius: 1em;
 }
 
-.embedded_webpage iframe {
+.left_embedded_webpage iframe {
     border: none;
 }
 
 .right_form_selection {
-    background-color: mediumpurple;
+    /*background-color: mediumpurple;*/
     height: 20em;
+    border-radius: 1em;
 }
 
 .right_form_selection input {
     margin: 2em 1em 1em;
+    border-radius: 4px;
+    border: none;
 }
 
 .doc_upload_form {
-    background-color: crimson;
+    /*background-color: crimson;*/
     text-align: center;
 }

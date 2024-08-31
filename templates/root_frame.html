@@ -10,7 +10,7 @@
 
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/_main.css') }}">
   <!-- temporary css for dynamic updates to IDE renderer -->
-  <!-- <link rel="stylesheet" type="text/css" href="../static/styles/_main.css"> -->
+  <link rel="stylesheet" type="text/css" href="../static/styles/_main.css">
 
   <title>Something</title>
 </head>
@@ -19,9 +19,9 @@
   <div class="super_parent">
     <div class="left_child_panel">
       <div class="left_main_header">
-          <h1>Document Title: {{ dynamic_header }}</h1>
+          <h2>Document Title: {{ dynamic_header }}</h2>
       </div>
-      <div class="embedded_webpage">
+      <div class="left_embedded_webpage">
         <iframe height="100%" width="100%" src="{{url_for('static', filename=static_file_name)}}" title="TEST"></iframe>
       </div>
       <div class="doc_upload_form">
@@ -34,7 +34,7 @@
     </div>
     <div class="right_child_panel">
       <div class="right_main_header">
-        <h1>Phrase Selection</h1>
+        <h2>Phrase Selection</h2>
       </div>
       <div class="right_form_selection">
         <form method="POST" enctype="multipart/form-data">
