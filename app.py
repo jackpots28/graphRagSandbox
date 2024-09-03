@@ -22,6 +22,8 @@ def space_underscore_replace(s: str) -> str:
 
 # Produce an html converted tempfile that returns just the root path name
 def docx_to_html(i_file: Path, o_dir: Path) -> Path:
+    style_map = """highlight => mark style="background-color:red;" """
+
     basename: str = i_file.stem
     o_tmp_file = tempfile.NamedTemporaryFile(
         prefix=space_underscore_replace(basename),
@@ -31,7 +33,7 @@ def docx_to_html(i_file: Path, o_dir: Path) -> Path:
     )
 
     with open(i_file, "rb") as docx_file:
-        o_html = mammoth.convert_to_html(docx_file).value
+        o_html = mammoth.convert_to_html(docx_file, style_map=style_map).value
         with open(o_tmp_file.name, "wb") as html_file:
             # This was needed to clean up any unicode that was showing up inside docx e.g. euro signs
             html_file.write(o_html.encode("ascii", "ignore"))

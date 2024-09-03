@@ -12,6 +12,9 @@ Color Palette:
     font-family: Arial,'EB Garamond',serif;
 }
 
+.highlight_class {
+    background-color: red;
+}
 
 .doc_title_container {
     text-align: center;
