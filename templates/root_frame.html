@@ -16,6 +16,9 @@
 </head>
 
 <body>
+<div class="doc_title_container">
+  <h1>Document Redlining Utility</h1>
+</div>
   <div class="super_parent">
     <div class="left_child_panel">
       <div class="left_main_header">
@@ -24,7 +27,7 @@
       <div class="left_embedded_webpage">
         <iframe height="100%" width="100%" src="{{url_for('static', filename=static_file_name)}}" title="TEST"></iframe>
       </div>
-      <div class="doc_upload_form">
+      <div class="bottom_doc_upload_selection">
         <h2>Upload new File</h2>
         <form method="POST" enctype=multipart/form-data>
           <input type=file name=file>

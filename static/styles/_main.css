@@ -12,6 +12,15 @@ Color Palette:
     font-family: Arial,'EB Garamond',serif;
 }
 
+
+.doc_title_container {
+    text-align: center;
+    border-bottom-style: solid;
+    border-bottom-width: 0.25em;
+    border-bottom-color: #231F20;
+}
+
+/* All Pairs of left/right panel divs */
 .left_child_panel, .right_child_panel {
     background-color: #FFF;
 }
@@ -21,16 +30,23 @@ Color Palette:
     color: #FFF;
     height: 2em;
     border-radius: 2em;
+    font-size: 0.85em;
 }
 
 .left_embedded_webpage, .right_form_selection {
     background-color: #DFDFDF;
 }
 
+.right_embedded_webpage, .right_child_panel {
+    margin-left: 0.5em;
+}
 
+/* Individual panel div styles */
 .super_parent {
     position: fixed;
-    display: flex;
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 1.5em;
 }
 
 .left_child_panel {
@@ -71,12 +87,13 @@ Color Palette:
 }
 
 .right_form_selection input {
-    margin: 2em 1em 1em;
+    margin: 1.5em 1em 1em;
     border-radius: 4px;
     border: none;
+    width: 20em;
 }
 
-.doc_upload_form {
+.bottom_doc_upload_selection {
     /*background-color: crimson;*/
     text-align: center;
 }
