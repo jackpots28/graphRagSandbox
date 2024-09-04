@@ -14,6 +14,8 @@ import tempfile
 import mammoth
 import os
 
+# So far testing of the webapp has been successful on both Unix (Mac) and Windows
+
 
 # Cleanup file names to be more 'UNIX' like
 def space_underscore_replace(s: str) -> str:
