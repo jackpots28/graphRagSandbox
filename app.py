@@ -94,7 +94,9 @@ def upload_file():
 # Start page - iframe is 'empty'
 @app.route("/", methods=["GET", "POST"])
 def index():
-    data = request.values.get("phrase_count_v")
+    data: int = 4
+    if request.values.get("phrase_count_v") is not None:
+        data = int(request.values.get("phrase_count_v"))
     print(data)
     return render_template(
         "root_frame.html",
