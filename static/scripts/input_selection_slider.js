@@ -5,9 +5,15 @@ let current;
 
 const data: FormData = new FormData()
 
+slider_v.oninput = function() {
+    current = this.value
+    output_display_v.innerHTML = current
+    Http.open('POST', '/')
+    Http.send(current)
+}
+
 slider_v.oninput = function sendData() {
     current = this.value;
-    output_display_v.innerHTML = current
 
     Http.open('POST', '/')
     Http.send(current)
