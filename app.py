@@ -24,7 +24,7 @@ def space_underscore_replace(s: str) -> str:
 
 # Produce an html converted tempfile that returns just the root path name
 def docx_to_html(i_file: Path, o_dir: Path) -> Path:
-    style_map = """highlight => mark style="background-color:red;" """
+    style_map = """highlight => mark"""
 
     basename: str = i_file.stem
     o_tmp_file = tempfile.NamedTemporaryFile(
@@ -57,47 +57,59 @@ def allowed_file(filename) -> bool:
     return allowed_file_output
 
 
-@app.route("/", methods=["POST"])
+@app.route("/document_upload", methods=["POST", "GET"])
 def upload_file():
-    uploaded_file = request.files["file"]
-    if uploaded_file.filename != "" and allowed_file(uploaded_file.filename):
-        uploaded_file.save(f"static/{uploaded_file.filename}")
-        new_html_file = docx_to_html(
-            Path(f"{UPLOAD_FOLDER}/{uploaded_file.filename}"), Path(UPLOAD_FOLDER)
-        )
-        return render_template(
-            "root_frame.html",
-            static_file_name=f"{Path(new_html_file).name}",
-            dynamic_header=f"{uploaded_file.filename}",
-            n=5,
-        )
-    # TODO - need to keep new tempfiles from being created on resubmit and just serve prior content
-    # elif os.path.exists(f"static/{uploaded_file.filename}"):
-    #     return render_template("root_frame.html",
-    #                            static_file_name=f"{Path(new_html_file).name}",
-    #                            dynamic_header=f"{uploaded_file.filename}")
+    if request.method == "POST":
+        uploaded_file = request.files["file"]
+        if uploaded_file.filename != "" and allowed_file(uploaded_file.filename):
+            uploaded_file.save(f"static/{uploaded_file.filename}")
+            new_html_file = docx_to_html(
+                Path(f"{UPLOAD_FOLDER}/{uploaded_file.filename}"), Path(UPLOAD_FOLDER)
+            )
+            return render_template(
+                "root_frame.html",
+                static_file_name=f"{Path(new_html_file).name}",
+                dynamic_header=f"{uploaded_file.filename}",
+                n=5,
+            )
+        # TODO - need to keep new tempfiles from being created on resubmit and just serve prior content
+        # elif os.path.exists(f"static/{uploaded_file.filename}"):
+        #     return render_template("root_frame.html",
+        #                            static_file_name=f"{Path(new_html_file).name}",
+        #                            dynamic_header=f"{uploaded_file.filename}")
+        else:
+            return render_template(
+                "root_frame.html",
+                static_file_name="blank.html",
+                dynamic_header="",
+                n=5,
+            )
+
     else:
         return render_template(
-            "root_frame.html",
-            static_file_name="blank.html",
-            dynamic_header="",
-            n=5,
+            "root_frame.html", static_file_name="blank.html", dynamic_header="", n=5
         )
 
 
 # Start page - iframe is 'empty'
-@app.route("/", methods=["GET"])
+@app.route("/", methods=["GET", "POST"])
 def index():
+    data = request.values.get("phrase_count_v")
+    print(data)
+    return render_template(
+        "root_frame.html",
+        static_file_name="blank.html",
+        dynamic_header="",
+        n=int(data),
+    )
+
+
+@app.route("/slider", methods=["POST", "GET"])
+def slider():
+
     return render_template(
         "root_frame.html",
         static_file_name="blank.html",
         dynamic_header="",
         n=5,
     )
-
-
-@app.route("/slider", methods=["POST", "GET"])
-def slider():
-    rec_data = request.data
-    print(rec_data)
-    return rec_data
