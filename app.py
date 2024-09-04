@@ -86,7 +86,7 @@ def upload_file():
 
 
 # Start page - iframe is 'empty'
-@app.route("/")
+@app.route("/", methods=["GET"])
 def index():
     return render_template(
         "root_frame.html",
@@ -94,3 +94,10 @@ def index():
         dynamic_header="",
         n=5,
     )
+
+
+@app.route("/slider", methods=["POST", "GET"])
+def slider():
+    rec_data = request.data
+    print(rec_data)
+    return rec_data

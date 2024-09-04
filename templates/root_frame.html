@@ -42,16 +42,48 @@
       <div class="right_form_selection">
         <form method="POST" enctype="multipart/form-data">
           <label for="phrase_box">
-            <!--
-            <input type="text" value="test_phrase">
-            <input type="submit" value="Next">
-            -->
-
             {% for i in range(n) %}
               <input name="field-{{i}}" id="phrase_box" />
             {% endfor %}
           </label>
+        </form>
+      </div>
+      <div class="right_bottom_form_updater">
+        <form method="POST" enctype="multipart/form-data">
+          <label for="phrase_count_v">
+            <input type="range" min="1" max="100" name="phrase_count_v" id="phrase_count_v">
+          </label>
+          <p>
+            <span id="output_p"></span>
+          </p>
+        <script>
+            const Http = new XMLHttpRequest();
+            var rangeslider = document.getElementById("phrase_count_v");
+            var output = document.getElementById("output_p");
+            var current;
 
+            rangeslider.oninput = function() {
+                current = this.value;
+
+                if (current < 33){
+                    output.innerHTML = '3';
+                    current = 3
+                    }
+                else if (current >= 33 && current <= 66){
+                    output.innerHTML = '6';
+                    current = 6
+                }
+                else if (current > 66){
+                    output.innerHTML = '9';
+                    current = 9
+                }
+
+                // I've added this call to the server, which send 'current' value
+                Http.open('POST', '/slider')
+                Http.send(current)
+
+            }
+        </script>
         </form>
       </div>
     </div>
