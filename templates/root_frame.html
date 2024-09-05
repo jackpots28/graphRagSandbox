@@ -49,14 +49,16 @@
         </form>
       </div>
       <div class="right_bottom_form_updater">
-        <form method="POST">
-          <label for="phrase_count_v">
-            <input type="range" min="1" max="10" name="phrase_count_v" id="phrase_count_v">
-            <button onclick=sendData()>Submit</button>
-          </label>
-          <p><span id="output_p"></span></p>
-          <script src="{{ url_for('static',filename='scripts/input_selection_slider.js') }}"></script>
-        </form>
+<!--        <form method="POST">-->
+<!--          <label for="phrase_count_v">-->
+<!--            <input type="range" min="1" max="10" name="phrase_count_v" id="phrase_count_v">-->
+<!--            <button onclick=sendData()>Submit</button>-->
+<!--          </label>-->
+<!--          <p><span id="output_p"></span></p>-->
+<!--          <script src="{{ url_for('static',filename='scripts/input_selection_slider.js') }}"></script>-->
+<!--        </form>-->
+        <button onclick=clearData()>Clear Page</button>
+        <script src="{{ url_for('static',filename='scripts/input_selection_slider.js') }}"></script>
       </div>
     </div>
   </div>

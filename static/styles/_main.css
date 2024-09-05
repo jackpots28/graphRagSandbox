@@ -31,7 +31,8 @@ Color Palette:
 .left_main_header, .right_main_header {
     background-color: #231F20;
     color: #FFF;
-    height: 2em;
+    height: 2.5em;
+    line-height: 2.5em;
     border-radius: 2em;
     font-size: 0.85em;
 }
