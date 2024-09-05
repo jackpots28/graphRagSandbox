@@ -18,3 +18,18 @@ slider_v.oninput = function sendData() {
     Http.open('POST', '/')
     Http.send(current)
 }
+
+
+
+document.getElementById("clear_btn").addEventListener('click', () => {
+    var image = canvas.toDataURL();
+    var r = new XMLHttpRequest();
+    r.open("POST", "/clear", true);
+    r.onreadystatechange = function () {
+        if (r.readyState !== 4 || r.status !== 200) return;
+        //alert("Success: " + r.responseText);
+        console.log("sent");
+    };
+    // Send data in below way from JS
+    r.send(JSON.stringify({"input": "test"}));
+});

@@ -127,9 +127,12 @@ def index():
     )
 
 
-@app.route("/clear", methods=["POST"])
-def clear_page():
-    return None
+# @app.route("/clear", methods=["POST", "GET"])
+# def clear_page():
+#     for f_name in os.listdir(f"{UPLOAD_FOLDER}"):
+#         if f_name.endswith(".html") or f_name.endswith(".docx"):
+#             os.remove(f_name)
+#     return None
 
 
 # @app.route("/slider", methods=["POST", "GET"])
